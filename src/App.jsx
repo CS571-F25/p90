@@ -3,8 +3,8 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import './App.css';
 import Home from './components/Home';
 import AboutMe from './components/AboutMe';
-import RecommendedDecks from './components/TopDecks';
-import Cards from './components/Cards';
+import TopDecks from './components/TopDecks';
+import DecksPerCard from './components/DecksPerCard';
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
       <Container className="mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recommended" element={<RecommendedDecks />} />
-          <Route path="/decks-per-card" element={<Cards />} />
+          <Route path="/recommended" element={<TopDecks />} />
+          <Route path="/decks-per-card" element={<DecksPerCard />} />
           <Route path="/about" element={<AboutMe />} />
         </Routes>
       </Container>
