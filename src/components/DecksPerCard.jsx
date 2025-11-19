@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CharacterCard from './CharacterCard';
 import DeckCard from './DeckCard';
 
-export default function Cards() {
+export default function DecksPerCard() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const cards = [
