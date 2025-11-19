@@ -1,5 +1,3 @@
-export default function Home (props){
-    return <div>
-        <h1>Home! Project p90</h1>
-    </div>
-}
+export default function Home() {
+    return <h1>Clash Royale Deck Builder</h1>;
+  }
