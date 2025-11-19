@@ -9,7 +9,7 @@ import DecksPerCard from './components/DecksPerCard';
 function App() {
   return (
     <HashRouter>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand as={Link} to="/">Clash Royale Deck Builder</Navbar.Brand>
           <Nav className="me-auto">

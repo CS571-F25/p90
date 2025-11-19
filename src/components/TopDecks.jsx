@@ -9,7 +9,7 @@ export default function TopDecks() {
 
   return (
     <div>
-      <h2>Top Ten Decks</h2>
+      <h2>Top Decks in the Game!</h2>
       {decks.map((deck, i) => (
         <DeckCard key={i} title={deck.title} description={deck.description} />
       ))}
