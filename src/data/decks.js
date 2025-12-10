@@ -135,49 +135,17 @@ export const topDecks = [
 ];
 
 // Decks organized by featured card (using official IDs)
-export const decksByCard = {
-  26000021: [ // Hog Rider decks
-    { id: 101, name: "Hog 2.6 Cycle", cards: [26000021, 26000014, 26000030, 26000000, 27000000, 28000000, 28000008, 28000011], winRate: 54.2 },
-    { id: 102, name: "Hog Earthquake", cards: [26000021, 26000011, 28000014, 26000064, 28000000, 28000008, 27000006, 28000011], winRate: 51.8 },
-    { id: 103, name: "Hog Exe Nado", cards: [26000021, 26000045, 28000012, 26000000, 26000030, 28000000, 28000008, 28000011], winRate: 50.5 },
-  ],
-  26000055: [ // Mega Knight decks
-    { id: 201, name: "MK Bait", cards: [26000055, 26000046, 26000032, 26000049, 26000041, 27000003, 28000008, 28000011], winRate: 52.3 },
-    { id: 202, name: "MK Ram Rider", cards: [26000055, 26000051, 26000042, 26000049, 28000000, 28000008, 27000006, 28000011], winRate: 51.1 },
-    { id: 203, name: "MK Graveyard", cards: [26000055, 28000010, 26000015, 28000009, 28000012, 28000008, 27000006, 26000049], winRate: 49.7 },
-  ],
-  26000004: [ // PEKKA decks
-    { id: 301, name: "PEKKA Bridge Spam", cards: [26000004, 26000036, 26000046, 26000042, 26000032, 28000009, 28000008, 28000011], winRate: 53.7 },
-    { id: 302, name: "PEKKA Ram Rider", cards: [26000004, 26000051, 26000042, 26000062, 28000009, 28000012, 28000008, 28000011], winRate: 52.4 },
-    { id: 303, name: "PEKKA Freeze", cards: [26000004, 28000005, 26000007, 28000012, 28000008, 26000049, 27000006, 28000011], winRate: 48.9 },
-  ],
-  26000026: [ // Princess decks
-    { id: 401, name: "Classic Log Bait", cards: [28000004, 26000026, 26000041, 26000000, 27000003, 28000003, 28000011, 27000006], winRate: 52.8 },
-    { id: 402, name: "Princess Miner", cards: [26000026, 26000032, 26000041, 26000000, 27000003, 28000000, 28000008, 28000011], winRate: 51.2 },
-    { id: 403, name: "Princess Mortar", cards: [26000026, 27000002, 26000041, 26000000, 28000003, 28000008, 28000011, 27000006], winRate: 49.5 },
-  ],
-  26000029: [ // Lava Hound decks
-    { id: 501, name: "Lava Loon", cards: [26000029, 26000006, 26000005, 26000049, 27000009, 28000000, 28000001, 26000032], winRate: 53.1 },
-    { id: 502, name: "Lava Clone", cards: [26000029, 28000013, 26000012, 26000006, 26000005, 28000001, 26000049, 28000008], winRate: 50.3 },
-    { id: 503, name: "Lava Miner", cards: [26000029, 26000032, 26000037, 26000049, 27000009, 28000000, 28000009, 28000008], winRate: 51.7 },
-  ],
-  26000009: [ // Golem decks
-    { id: 601, name: "Golem Beatdown", cards: [26000009, 26000048, 26000035, 26000015, 27000006, 28000007, 28000012, 28000008], winRate: 51.5 },
-    { id: 602, name: "Golem Clone", cards: [26000009, 28000013, 26000048, 26000049, 26000015, 28000007, 28000012, 28000008], winRate: 49.2 },
-    { id: 603, name: "Golem Lightning", cards: [26000009, 28000007, 26000042, 26000015, 28000012, 28000008, 27000006, 26000039], winRate: 48.6 },
-  ],
-  26000069: [ // Skeleton King decks
-    { id: 701, name: "Skeleton King Graveyard", cards: [26000069, 28000010, 26000015, 28000009, 28000012, 28000008, 27000009, 26000049], winRate: 52.1 },
-    { id: 702, name: "Skeleton King Splashyard", cards: [26000069, 28000010, 26000034, 26000015, 28000009, 28000012, 27000009, 28000008], winRate: 51.3 },
-  ],
-  26000074: [ // Golden Knight decks
-    { id: 801, name: "GK Bridge Spam", cards: [26000074, 26000004, 26000036, 26000046, 26000032, 28000009, 28000008, 28000011], winRate: 53.2 },
-    { id: 802, name: "GK Hog", cards: [26000074, 26000021, 26000014, 26000030, 27000000, 28000000, 28000008, 28000011], winRate: 52.5 },
-  ],
-  26000072: [ // Archer Queen decks
-    { id: 901, name: "AQ Hog Cycle", cards: [26000072, 26000021, 26000014, 26000030, 27000000, 28000000, 28000008, 28000011], winRate: 54.1 },
-    { id: 902, name: "AQ Giant", cards: [26000072, 26000003, 26000016, 26000027, 28000009, 28000008, 26000005, 26000032], winRate: 51.8 },
-  ],
-};
+export const decksByCard = topDecks.reduce((acc, deck) => {
+  deck.cards.forEach((cardId) => {
+    if (!acc[cardId]) acc[cardId] = [];
+    acc[cardId].push({
+      id: deck.id,
+      name: deck.name,
+      cards: deck.cards,
+      winRate: deck.winRate,
+    });
+  });
+  return acc;
+}, {});
 
 export default topDecks;

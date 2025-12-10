@@ -145,18 +145,46 @@ function CardDecks() {
                           </span>
                         )}
                         
-                        <img 
-                          src={card.image} 
-                          alt={card.name}
-                          style={{ 
-                            width: '45px', 
-                            height: '45px', 
-                            objectFit: 'contain',
-                            marginBottom: '2px'
+                        <div
+                          className={`rarity-${card.rarity.toLowerCase()}`}
+                          style={{
+                            width: "100px",
+                            height: "120px",
+                            borderRadius: "12px",
+                            overflow: "hidden",
+                            marginBottom: "5px",
+                            border: "3px solid"
                           }}
-                          loading="lazy"
-                        />
-                        <span className="card-name">{card.name}</span>
+                        >
+                          <img
+                            src={card.image}
+                            alt={card.name}
+                            loading="lazy"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover"
+                            }}
+                          />
+                        </div>
+                        <div
+                            style={{
+                              position: "absolute",
+                              bottom: 0,
+                              left: 0,
+                              width: "100%",
+                              background: "rgba(0, 0, 0, 0.55)",
+                              color: "white",
+                              fontSize: "0.65rem",
+                              fontWeight: 600,
+                              textAlign: "center",
+                              padding: "2px 4px",
+                              lineHeight: "1.1",
+                              backdropFilter: "blur(2px)"
+                            }}
+                          >
+                            {card.name}
+                          </div>
                       </div>
                     )
                   })}
@@ -174,9 +202,15 @@ function CardDecks() {
             {selectedCardData ? (
               <>
                 {/* Selected Card Info */}
-                <div className="cr-card mb-4">
-                  <div className="cr-card-body">
-                    <div className="d-flex align-items-center gap-3">
+                <div 
+                      className="d-flex align-items-center gap-3 mb-4"
+                      style={{
+                        padding: "12px 16px",
+                        background: "rgba(255, 255, 255, 0.04)",
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255,255,255,0.08)"
+                      }}
+                    >
                       <div 
                         className={`rarity-${selectedCardData.rarity.toLowerCase()}`}
                         style={{
@@ -260,8 +294,6 @@ function CardDecks() {
                         </p>
                       </div>
                     </div>
-                  </div>
-                </div>
 
                 {/* Decks featuring this card */}
                 <h3 className="mb-3">
