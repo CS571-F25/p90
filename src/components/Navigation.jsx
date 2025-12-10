@@ -18,6 +18,7 @@ function Navigation() {
               as={NavLink} 
               to="/" 
               className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}
+              style={{ color: "white" }}
               end
             >
               🏠 Home
@@ -26,6 +27,7 @@ function Navigation() {
               as={NavLink} 
               to="/top-decks" 
               className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}
+              style={{ color: "white" }}
             >
               🏆 Top Decks
             </Nav.Link>
@@ -33,6 +35,7 @@ function Navigation() {
               as={NavLink} 
               to="/card-decks" 
               className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}
+              style={{ color: "white" }}
             >
               🃏 Card Decks
             </Nav.Link>
@@ -40,6 +43,7 @@ function Navigation() {
               as={NavLink} 
               to="/deck-builder" 
               className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}
+              style={{ color: "white" }}
             >
               🔨 Deck Builder
             </Nav.Link>
